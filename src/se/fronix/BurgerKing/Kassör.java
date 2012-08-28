@@ -1,36 +1,55 @@
 package se.fronix.BurgerKing;
 
-import java.util.Random;
+import se.fronix.BurgerKing.Staff;
 
 class Kassör extends Staff{
 	
-	String kund;
-	String anställd;
+	private int attBetala;
 	
-	public void servera()
+	public void servera(String anställd, int kund)
 	{
 		System.out.println(anställd + " serverar nu " + kund);
 	}
 	
 	public void nyKund(int MenyNummer, String anställd)
 	{
-		Random kundGenerator = new Random();
-		int kund = kundGenerator.nextInt(100);
-		anställd = this.anställd;
-
+		int kund = this.genereraKund();
+		GrillMaster steka = new GrillMaster();
+		
 		if(MenyNummer == 1){
-			System.out.println("Kund: " + kund + " beställde en Wooper för ");
 			kundBetala(MenyNummer);
+			System.out.println("Kund: " + kund + " beställde en Wooper för " + attBetala + "kr");
+			do
+			{
+				System.out.println("Beställningen är inte klar");
+				//this.servera(anställd, kund);
+			}while(steka.steka() == 0);
+			System.out.println("Beställningen är nu klar");
+			this.servera(anställd, kund);
 		}
 		
 		if(MenyNummer == 2){
-			System.out.println("Kund: " + kund + " beställde en Angus Burger ");
 			kundBetala(MenyNummer);
+			System.out.println("Kund: " + kund + " beställde en Wooper för " + attBetala + "kr");
+			do
+			{
+				System.out.println("Beställningen är inte klar");
+				//this.servera(anställd, kund);
+			}while(steka.steka() == 0);
+			System.out.println("Beställningen är nu klar");
+			this.servera(anställd, kund);
 		}
 		
 		if(MenyNummer == 3){
-			System.out.println("Kund: " + kund + " beställde en Snooper för ");
 			kundBetala(MenyNummer);
+			System.out.println("Kund: " + kund + " beställde en Wooper för " + attBetala + "kr");
+			do
+			{
+				System.out.println("Beställningen är inte klar");
+				//this.servera(anställd, kund);
+			}while(steka.steka() == 0);
+			System.out.println("Beställningen är nu klar");
+			this.servera(anställd, kund);
 		}
 	}
 	
@@ -38,15 +57,15 @@ class Kassör extends Staff{
 	private void kundBetala(int MenyNummer)
 	{
 		if(MenyNummer == 1){
-			System.out.print("50kr");
+			attBetala = 50;
 		}
 		
 		if(MenyNummer == 2){
-			System.out.print("50kr");
+			attBetala = 65;
 		}
 		
 		if(MenyNummer == 3){
-			System.out.print("50kr");
+			attBetala = 75;
 		}
 	}
 

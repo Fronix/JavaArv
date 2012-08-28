@@ -15,8 +15,6 @@ public class BurgerKing {
 		henke.stämplaIn();
 		
 		lisa.nyKund(2, "Lisa");
-		henke.steka();
-		lisa.servera();
 		
 	}
 	
